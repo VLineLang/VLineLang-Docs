@@ -2,6 +2,9 @@
 
 本章节将详细介绍VLineLang的基本语法规则。
 
+> [!TIP]
+> 你可以使用 `import package` 来导入自定义模块 `package.vl`，*package* 中的目录分隔符应为斜杠（`/`）。
+
 ## 变量和常量
 
 ### 变量声明
@@ -126,6 +129,16 @@ b = false
 and_result = a and b   /* 逻辑与 */
 or_result = a or b     /* 逻辑或 */
 not_result = not a     /* 逻辑非 */
+```
+
+### 位运算符
+
+分别支持按位与（&）、按位或（|）、按位取反（~）：
+
+```vline
+print(2|1)  // 输出3
+print(2&1)  // 输出0
+print(~2)   // 输出-3
 ```
 
 ## 注释
