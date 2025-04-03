@@ -35,18 +35,26 @@ print(p1.distance(p2))  // 输出: 5
 
 ```vline
 class Person
-    fn __init__(name, age)
+    // 构造函数使用默认参数
+    fn __init__(name, age=18, title="用户")
         self.name = name
         self.age = age
+        self.title = title
     end
     
     fn introduce()
-        print("我是" + self.name + "，今年" + str(self.age) + "岁")
+        print("我是" + self.title + " " + self.name + "，今年" + str(self.age) + "岁")
     end
 end
 
-person = new Person("VLine", 1)
-person.introduce()
+// 使用默认参数创建对象
+person1 = new Person("VLine")              // age使用默认值18，title使用默认值"用户"
+person2 = new Person("VLine", 25)         // title使用默认值"用户"
+person3 = new Person("VLine", 30, "管理员") // 覆盖所有默认值
+
+person1.introduce()  // 输出: 我是用户 VLine，今年18岁
+person2.introduce()  // 输出: 我是用户 VLine，今年25岁
+person3.introduce()  // 输出: 我是管理员 VLine，今年30岁
 ```
 
 ## 继承
@@ -140,8 +148,8 @@ fn make_sound(animal)
     animal.speak()
 end
 
-dog = new Dog()
-cat = new Cat()
+dog = new Dog
+cat = new Cat
 
 make_sound(dog)  // 输出: 汪汪
 make_sound(cat)  // 输出: 喵喵

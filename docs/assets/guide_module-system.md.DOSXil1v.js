@@ -1,0 +1,26 @@
+import{_ as n,c as s,o as l,ae as i}from"./chunks/framework.Dh1jimFm.js";const m=JSON.parse('{"title":"模块系统","description":"","frontmatter":{},"headers":[],"relativePath":"guide/module-system.md","filePath":"guide/module-system.md"}'),e={name:"guide/module-system.md"};function p(t,a,o,c,r,d){return l(),s("div",null,a[0]||(a[0]=[i(`<h1 id="模块系统" tabindex="-1">模块系统 <a class="header-anchor" href="#模块系统" aria-label="Permalink to &quot;模块系统&quot;">​</a></h1><p>本章节将详细介绍VLineLang的模块系统，特别是<code>import</code>语句的工作机制和模块搜索优先级。</p><h2 id="基本语法" tabindex="-1">基本语法 <a class="header-anchor" href="#基本语法" aria-label="Permalink to &quot;基本语法&quot;">​</a></h2><p>在VLineLang中，你可以使用<code>import</code>语句来导入其他模块：</p><div class="language-vline vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">vline</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>// 导入单个模块</span></span>
+<span class="line"><span>import &quot;mymodule&quot;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 导入子目录中的模块</span></span>
+<span class="line"><span>import &quot;subdir/mymodule&quot;</span></span></code></pre></div><h2 id="模块搜索优先级" tabindex="-1">模块搜索优先级 <a class="header-anchor" href="#模块搜索优先级" aria-label="Permalink to &quot;模块搜索优先级&quot;">​</a></h2><p>VLineLang在导入模块时会按照以下优先级顺序搜索文件：</p><ol><li><p><strong>当前目录下的.vl文件（最高优先级）</strong></p><ul><li>首先搜索与模块名完全匹配的.vl文件</li><li>例如：<code>import &quot;mymodule&quot;</code> 会首先查找 <code>./mymodule.vl</code></li></ul></li><li><p><strong>同名目录下的__init__.vl文件</strong></p><ul><li>如果没有找到直接匹配的.vl文件，则查找同名目录下的__init__.vl</li><li>例如：<code>import &quot;mymodule&quot;</code> 会查找 <code>./mymodule/__init__.vl</code></li></ul></li><li><p><strong>lib目录下的.vl文件</strong></p><ul><li>如果在当前目录下未找到，则搜索lib目录下的.vl文件</li><li>例如：<code>import &quot;mymodule&quot;</code> 会查找 <code>./lib/mymodule.vl</code></li></ul></li><li><p><strong>lib目录下目录的__init__.vl文件（最低优先级）</strong></p><ul><li>最后搜索lib目录下同名目录中的__init__.vl文件</li><li>例如：<code>import &quot;mymodule&quot;</code> 会查找 <code>./lib/mymodule/__init__.vl</code></li></ul></li></ol><h2 id="示例结构" tabindex="-1">示例结构 <a class="header-anchor" href="#示例结构" aria-label="Permalink to &quot;示例结构&quot;">​</a></h2><p>以下是一个典型的项目结构示例：</p><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>project/</span></span>
+<span class="line"><span>├── main.vl</span></span>
+<span class="line"><span>├── utils.vl</span></span>
+<span class="line"><span>├── config/</span></span>
+<span class="line"><span>│   ├── __init__.vl</span></span>
+<span class="line"><span>│   └── settings.vl</span></span>
+<span class="line"><span>└── lib/</span></span>
+<span class="line"><span>    ├── database.vl</span></span>
+<span class="line"><span>    └── network/</span></span>
+<span class="line"><span>        └── __init__.vl</span></span></code></pre></div><p>在这个结构中：</p><div class="language-vline vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">vline</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>// main.vl</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 直接导入当前目录的utils.vl</span></span>
+<span class="line"><span>import &quot;utils&quot;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 导入config目录下的__init__.vl</span></span>
+<span class="line"><span>import &quot;config&quot;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 导入lib目录下的database.vl</span></span>
+<span class="line"><span>import &quot;database&quot;</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 导入lib/network目录下的__init__.vl</span></span>
+<span class="line"><span>import &quot;network&quot;</span></span></code></pre></div><h2 id="最佳实践" tabindex="-1">最佳实践 <a class="header-anchor" href="#最佳实践" aria-label="Permalink to &quot;最佳实践&quot;">​</a></h2><ol><li><p><strong>模块命名</strong></p><ul><li>使用清晰、描述性的模块名</li><li>避免使用与标准库同名的模块名</li><li>推荐使用小写字母和下划线</li></ul></li><li><p><strong>目录结构</strong></p><ul><li>将相关的模块组织在同一目录下</li><li>使用__init__.vl来初始化模块包</li><li>保持目录结构清晰和合理</li></ul></li><li><p><strong>导入规范</strong></p><ul><li>将所有导入语句放在文件开头</li><li>按照功能对导入进行分组</li><li>避免循环导入</li></ul></li></ol><h2 id="注意事项" tabindex="-1">注意事项 <a class="header-anchor" href="#注意事项" aria-label="Permalink to &quot;注意事项&quot;">​</a></h2><ol><li><p><strong>路径分隔符</strong></p><ul><li>在import语句中始终使用正斜杠（<code>/</code>）作为路径分隔符</li><li>这确保了代码在不同操作系统上的一致性</li></ul></li><li><p><strong>模块可见性</strong></p><ul><li><strong>init</strong>.vl文件可以控制模块包的公共接口</li></ul></li><li><p><strong>错误处理</strong></p><ul><li>如果模块未找到，VLineLang将抛出错误</li><li>确保所有依赖模块都存在并且路径正确</li></ul></li></ol><h2 id="调试技巧" tabindex="-1">调试技巧 <a class="header-anchor" href="#调试技巧" aria-label="Permalink to &quot;调试技巧&quot;">​</a></h2><p>如果遇到模块导入问题，可以：</p><ol><li>检查文件扩展名是否为.vl</li><li>验证模块名和路径是否正确</li><li>确认模块文件在正确的搜索路径中</li><li>检查是否有循环导入</li></ol><p>通过遵循这些规则和最佳实践，你可以更好地组织和管理VLineLang项目的代码结构。</p>`,21)]))}const _=n(e,[["render",p]]);export{m as __pageData,_ as default};

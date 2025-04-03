@@ -9,7 +9,6 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: '指南', link: '/guide/' },
-      { text: '标准库', link: '/guide/stdlib' }
     ],
 
     sidebar: [
@@ -26,7 +25,8 @@ export default defineConfig({
           { text: '控制结构', link: '/guide/control-flow' },
           { text: '函数', link: '/guide/functions' },
           { text: '面向对象编程', link: '/guide/oop' },
-          { text: '标准库', link: '/guide/stdlib' }
+          { text: '标准库', link: '/guide/stdlib' },
+          { text: '模块系统', link: '/guide/module-system' },
         ]
       }
     ],

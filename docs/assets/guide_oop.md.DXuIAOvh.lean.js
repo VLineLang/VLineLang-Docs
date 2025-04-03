@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as p,ae as e}from"./chunks/framework.Dh1jimFm.js";const h=JSON.parse('{"title":"面向对象编程","description":"","frontmatter":{},"headers":[],"relativePath":"guide/oop.md","filePath":"guide/oop.md"}'),l={name:"guide/oop.md"};function i(t,n,c,o,d,r){return p(),a("div",null,n[0]||(n[0]=[e("",22)]))}const f=s(l,[["render",i]]);export{h as __pageData,f as default};

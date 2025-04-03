@@ -3,7 +3,7 @@
 本章节将详细介绍VLineLang的基本语法规则。
 
 > [!TIP]
-> 你可以使用 `import package` 来导入自定义模块 `package.vl`，*package* 中的目录分隔符应为斜杠（`/`）。
+> 你可以使用 `import "packageName"` 来导入自定义模块。VLineLang具有完整的[模块系统](./module-system.md)，支持多级目录和优先级导入。
 
 ## 变量和常量
 
@@ -85,9 +85,18 @@ last = numbers[len(numbers)-1]  /* 获取最后一个元素 */
 numbers[0] = 10         /* 修改第一个元素 */
 
 // 列表操作
+import "StdList"  /* 导入列表标准库，需要确保运行目录有此文件 */
+
+numbers = new List()  /* 创建空列表 */
+
+// numbers = new List(3)  /* 创建大小为3的列表，所有初始元素元素为0 */
+// numbers = new List(3, 1)  /* 创建大小为3的列表，所有初始元素元素为1 */
+
 numbers.append(4)       /* 添加元素 */
-numbers.erase(0, 1)        /* 删除指定位置的元素 */
+numbers.erase(0, 1)        /* 删除指定位置 [start,end) 的元素 */
 numbers.insert(0, 1)    /* 在指定位置插入元素 */
+print(numbers.size())  /* 输出列表大小 */
+print(numbers.empty())  /* 检查列表是否为空 */
 ```
 
 ## 运算符
@@ -140,6 +149,9 @@ print(2|1)  // 输出3
 print(2&1)  // 输出0
 print(~2)   // 输出-3
 ```
+
+> [!WARNING]
+> 位运算符会将大数转换成*64位有符号整数*，可能会导致精度损失。
 
 ## 注释
 

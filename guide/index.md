@@ -10,6 +10,7 @@
 - [函数](./functions.md) - 函数定义和使用
 - [面向对象](./oop.md) - 类、对象和继承
 - [标准库](./stdlib.md) - 内置函数和工具
+- [模块系统](./module-system.md) - 如何组织代码和管理依赖
 
 ## 为什么选择VLineLang？
 

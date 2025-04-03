@@ -36,13 +36,16 @@ print("明年你" + str(age + 1) + "岁")
 
 ## 列表操作
 
+> [!TIP]
+> 可以使用 `import "StdList"` 导入列表标准库（确保其文件存在并且在当前文件夹下），并使用 `l = new List()` 来初始化一个列表，在以下例子中，使用 `numbers = new List()` 来初始化。
+
 ### len 函数
 
 获取列表长度：
 
 ```vline
 numbers = [1, 2, 3, 4, 5]
-size = len(numbers)
+size = len(numbers)  // StdList 等价方法：size = numbers.size()
 print(size)  // 输出: 5
 ```
 
@@ -52,7 +55,7 @@ print(size)  // 输出: 5
 
 ```vline
 numbers = [1, 2, 3]
-numbers.append(4)
+numbers = append(numbers, 4)  // StdList 等价方法：numbers.append(4)
 print(numbers)  // 输出: [1, 2, 3, 4]
 ```
 
@@ -62,7 +65,7 @@ print(numbers)  // 输出: [1, 2, 3, 4]
 
 ```vline
 numbers = [1, 2, 3, 4, 5]
-numbers.erase(2, 3)  // 删除索引2的元素
+numbers = erase(numbers, 2, 3)  // 删除索引2的元素，StdList 等价方法：numbers.erase(2, 3)
 print(numbers)    // 输出: [1, 2, 4, 5]
 ```
 
@@ -72,8 +75,18 @@ print(numbers)    // 输出: [1, 2, 4, 5]
 
 ```vline
 numbers = [1, 2, 4, 5]
-numbers.insert(2, 3)  // 在索引2处插入3
+numbers = insert(numbers, 2, 3)  // 在索引2处插入3，StdList 等价方法：numbers.insert(2, 3)
 print(numbers)       // 输出: [1, 2, 3, 4, 5]
+```
+
+### empty 函数（仅 StdList 支持）
+
+检查列表是否为空：
+
+```vline
+numbers = new List()
+is_empty = numbers.empty()
+print(is_empty)  // 输出: 1
 ```
 
 ## 类型操作

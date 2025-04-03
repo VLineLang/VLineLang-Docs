@@ -48,16 +48,36 @@ print(result)  // 输出: 7
 fn calculate(a, b, operation)
     if operation == "+"
         return a + b
-    else if operation == "-"
+    elif operation == "-"
         return a - b
     end
 end
 
 result = calculate(10, 5, "+")  // 加法
 result = calculate(10, 5, "-")  // 减法
+```
 
-greet("VLine")           // 使用默认问候语
-greet("VLine", "Hi")    // 自定义问候语
+### 默认参数
+
+```vline
+// 带默认参数的函数
+fn greet(name, greeting="Hello")
+    print(greeting + ", " + name + "!")
+end
+
+greet("VLine")           // 使用默认问候语，输出: Hello, VLine!
+greet("VLine", "Hi")    // 自定义问候语，输出: Hi, VLine!
+
+// 多个默认参数
+fn create_user(name, age=18, role="user")
+    print("创建用户：" + name)
+    print("年龄：" + str(age))
+    print("角色：" + role)
+end
+
+create_user("VLine")                    // 使用所有默认值
+create_user("VLine", 25)               // 覆盖age参数
+create_user("VLine", 30, "admin")      // 覆盖所有默认值
 ```
 
 ## 返回值

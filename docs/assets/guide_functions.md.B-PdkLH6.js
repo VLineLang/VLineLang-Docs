@@ -1,4 +1,4 @@
-import{_ as a,c as s,o as p,ae as e}from"./chunks/framework.Dh1jimFm.js";const h=JSON.parse('{"title":"函数","description":"","frontmatter":{},"headers":[],"relativePath":"guide/functions.md","filePath":"guide/functions.md"}'),l={name:"guide/functions.md"};function i(t,n,c,o,r,d){return p(),s("div",null,n[0]||(n[0]=[e(`<h1 id="函数" tabindex="-1">函数 <a class="header-anchor" href="#函数" aria-label="Permalink to &quot;函数&quot;">​</a></h1><p>本章节介绍VLineLang中的函数系统，包括函数定义、参数传递和返回值等内容。</p><h2 id="函数定义" tabindex="-1">函数定义 <a class="header-anchor" href="#函数定义" aria-label="Permalink to &quot;函数定义&quot;">​</a></h2><h3 id="基本语法" tabindex="-1">基本语法 <a class="header-anchor" href="#基本语法" aria-label="Permalink to &quot;基本语法&quot;">​</a></h3><p>使用<code>fn</code>关键字定义函数：</p><div class="language-vline vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">vline</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>// 基本函数定义</span></span>
+import{_ as a,c as s,o as p,ae as e}from"./chunks/framework.Dh1jimFm.js";const h=JSON.parse('{"title":"函数","description":"","frontmatter":{},"headers":[],"relativePath":"guide/functions.md","filePath":"guide/functions.md"}'),l={name:"guide/functions.md"};function i(t,n,c,o,r,u){return p(),s("div",null,n[0]||(n[0]=[e(`<h1 id="函数" tabindex="-1">函数 <a class="header-anchor" href="#函数" aria-label="Permalink to &quot;函数&quot;">​</a></h1><p>本章节介绍VLineLang中的函数系统，包括函数定义、参数传递和返回值等内容。</p><h2 id="函数定义" tabindex="-1">函数定义 <a class="header-anchor" href="#函数定义" aria-label="Permalink to &quot;函数定义&quot;">​</a></h2><h3 id="基本语法" tabindex="-1">基本语法 <a class="header-anchor" href="#基本语法" aria-label="Permalink to &quot;基本语法&quot;">​</a></h3><p>使用<code>fn</code>关键字定义函数：</p><div class="language-vline vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">vline</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>// 基本函数定义</span></span>
 <span class="line"><span>fn greet()</span></span>
 <span class="line"><span>    print(&quot;Hello, VLineLang!&quot;)</span></span>
 <span class="line"><span>end</span></span>
@@ -23,16 +23,30 @@ import{_ as a,c as s,o as p,ae as e}from"./chunks/framework.Dh1jimFm.js";const h
 <span class="line"><span>fn calculate(a, b, operation)</span></span>
 <span class="line"><span>    if operation == &quot;+&quot;</span></span>
 <span class="line"><span>        return a + b</span></span>
-<span class="line"><span>    else if operation == &quot;-&quot;</span></span>
+<span class="line"><span>    elif operation == &quot;-&quot;</span></span>
 <span class="line"><span>        return a - b</span></span>
 <span class="line"><span>    end</span></span>
 <span class="line"><span>end</span></span>
 <span class="line"><span></span></span>
 <span class="line"><span>result = calculate(10, 5, &quot;+&quot;)  // 加法</span></span>
-<span class="line"><span>result = calculate(10, 5, &quot;-&quot;)  // 减法</span></span>
+<span class="line"><span>result = calculate(10, 5, &quot;-&quot;)  // 减法</span></span></code></pre></div><h3 id="默认参数" tabindex="-1">默认参数 <a class="header-anchor" href="#默认参数" aria-label="Permalink to &quot;默认参数&quot;">​</a></h3><div class="language-vline vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">vline</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>// 带默认参数的函数</span></span>
+<span class="line"><span>fn greet(name, greeting=&quot;Hello&quot;)</span></span>
+<span class="line"><span>    print(greeting + &quot;, &quot; + name + &quot;!&quot;)</span></span>
+<span class="line"><span>end</span></span>
 <span class="line"><span></span></span>
-<span class="line"><span>greet(&quot;VLine&quot;)           // 使用默认问候语</span></span>
-<span class="line"><span>greet(&quot;VLine&quot;, &quot;Hi&quot;)    // 自定义问候语</span></span></code></pre></div><h2 id="返回值" tabindex="-1">返回值 <a class="header-anchor" href="#返回值" aria-label="Permalink to &quot;返回值&quot;">​</a></h2><h3 id="基本返回值" tabindex="-1">基本返回值 <a class="header-anchor" href="#基本返回值" aria-label="Permalink to &quot;基本返回值&quot;">​</a></h3><div class="language-vline vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">vline</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>// 返回单个值</span></span>
+<span class="line"><span>greet(&quot;VLine&quot;)           // 使用默认问候语，输出: Hello, VLine!</span></span>
+<span class="line"><span>greet(&quot;VLine&quot;, &quot;Hi&quot;)    // 自定义问候语，输出: Hi, VLine!</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>// 多个默认参数</span></span>
+<span class="line"><span>fn create_user(name, age=18, role=&quot;user&quot;)</span></span>
+<span class="line"><span>    print(&quot;创建用户：&quot; + name)</span></span>
+<span class="line"><span>    print(&quot;年龄：&quot; + str(age))</span></span>
+<span class="line"><span>    print(&quot;角色：&quot; + role)</span></span>
+<span class="line"><span>end</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>create_user(&quot;VLine&quot;)                    // 使用所有默认值</span></span>
+<span class="line"><span>create_user(&quot;VLine&quot;, 25)               // 覆盖age参数</span></span>
+<span class="line"><span>create_user(&quot;VLine&quot;, 30, &quot;admin&quot;)      // 覆盖所有默认值</span></span></code></pre></div><h2 id="返回值" tabindex="-1">返回值 <a class="header-anchor" href="#返回值" aria-label="Permalink to &quot;返回值&quot;">​</a></h2><h3 id="基本返回值" tabindex="-1">基本返回值 <a class="header-anchor" href="#基本返回值" aria-label="Permalink to &quot;基本返回值&quot;">​</a></h3><div class="language-vline vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">vline</span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>// 返回单个值</span></span>
 <span class="line"><span>fn square(x)</span></span>
 <span class="line"><span>    return x * x</span></span>
 <span class="line"><span>end</span></span>
@@ -86,4 +100,4 @@ import{_ as a,c as s,o as p,ae as e}from"./chunks/framework.Dh1jimFm.js";const h
 <span class="line"><span>        return n</span></span>
 <span class="line"><span>    end</span></span>
 <span class="line"><span>    return fibonacci(n - 1) + fibonacci(n - 2)</span></span>
-<span class="line"><span>end</span></span></code></pre></div><h2 id="最佳实践" tabindex="-1">最佳实践 <a class="header-anchor" href="#最佳实践" aria-label="Permalink to &quot;最佳实践&quot;">​</a></h2><ol><li><p><strong>函数设计</strong></p><ul><li>函数名应该清晰表达其功能</li><li>一个函数应该只做一件事</li><li>保持函数简短，易于理解</li></ul></li><li><p><strong>参数处理</strong></p><ul><li>适当检查参数有效性</li><li>提供合理的默认值</li><li>明确参数的类型和用途</li></ul></li><li><p><strong>返回值</strong></p><ul><li>保持返回值类型的一致性</li><li>适当处理错误情况</li><li>文档说明返回值的含义</li></ul></li><li><p><strong>代码组织</strong></p><ul><li>相关函数放在一起</li><li>使用适当的注释</li><li>保持代码格式的一致性</li></ul></li></ol>`,23)]))}const b=a(l,[["render",i]]);export{h as __pageData,b as default};
+<span class="line"><span>end</span></span></code></pre></div><h2 id="最佳实践" tabindex="-1">最佳实践 <a class="header-anchor" href="#最佳实践" aria-label="Permalink to &quot;最佳实践&quot;">​</a></h2><ol><li><p><strong>函数设计</strong></p><ul><li>函数名应该清晰表达其功能</li><li>一个函数应该只做一件事</li><li>保持函数简短，易于理解</li></ul></li><li><p><strong>参数处理</strong></p><ul><li>适当检查参数有效性</li><li>提供合理的默认值</li><li>明确参数的类型和用途</li></ul></li><li><p><strong>返回值</strong></p><ul><li>保持返回值类型的一致性</li><li>适当处理错误情况</li><li>文档说明返回值的含义</li></ul></li><li><p><strong>代码组织</strong></p><ul><li>相关函数放在一起</li><li>使用适当的注释</li><li>保持代码格式的一致性</li></ul></li></ol>`,25)]))}const b=a(l,[["render",i]]);export{h as __pageData,b as default};
