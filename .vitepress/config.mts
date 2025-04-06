@@ -27,6 +27,7 @@ export default defineConfig({
           { text: '面向对象编程', link: '/guide/oop' },
           { text: '标准库', link: '/guide/stdlib' },
           { text: '模块系统', link: '/guide/module-system' },
+          { text: '错误处理', link: '/guide/error-handling' },
         ]
       }
     ],
